@@ -58,19 +58,22 @@ gains are smaller, as the figures below show:
 
 ![sign1m](./sign1m.png)
 
+## Independent results
+
+* By @itzmeanjan: 
+    - ML-DSA-B [C++ version](https://github.com/itzmeanjan/ml-dsa/tree/ml-dsa-b)
+    - [Announcement](https://x.com/meanjanroy/status/1980955869178413544): "Keygen is 20% faster. Signing is 76% faster. Verify is 18% faster."
+
+
 ## Upcoming work
 
 We plan to:
 
-- Evaluate SLH-DSA-B, a variant of the hash heavy [SLH-DSA (FIPS 205)](https://csrc.nist.gov/pubs/fips/205/final) where BLAKE3 replaces
-  SHA256 and SHAKE.
+- Evaluate SLH-DSA-B, a variant of the hash heavy [SLH-DSA (FIPS 205)](https://csrc.nist.gov/pubs/fips/205/final) where BLAKE3 replaces 
+  SHA256 and SHAKE. (Ongoing)
 
 - This fork is temporarily pinned to an earlier [RustCrypto commit](https://github.com/RustCrypto/signatures/commit/f6df3e250c7634bdb72bb2f11e3a4f142be06678). We intend to re-sync with upstream (RustCrypto/signatures) to incorporate the latest ML-DSA changes.
 
-- Create a C version of ML-DSA-B and produce test vectors to ensure
-  consistency across implementations.
+- Create a C version of ML-DSA-B and produce test vectors to ensure consistency across implementations.
 
-- Evaluate BLAKE3's impact on other post-quantum standards and
-  candidates, including KEMs and NIST's
-  [Additional](https://csrc.nist.gov/Projects/pqc-dig-sig/round-2-additional-signatures)
-  signature schemes.
+- Evaluate BLAKE3's impact on other post-quantum standards and candidates, including KEMs and NIST's [Additional](https://csrc.nist.gov/Projects/pqc-dig-sig/round-2-additional-signatures) signature schemes.
