@@ -48,9 +48,7 @@ depending on the platform, ML-DSA-B can offer the following speed-up:
 2. Signature: up to 20% faster.
 3. Verification: up to 30% faster.
 
-TODO: On AMD and Intel CPUs, the speedups are most pronounced. On Apple ARM
-SoCs, pre-hash remains much faster but the signature and verification
-gains are smaller, as the figures below show:
+We also include test vectors for ML-DSA-B.
 
 ### Apple M3 Results
 
@@ -78,11 +76,29 @@ gains are smaller, as the figures below show:
 
 ## Faster SLH-DSA
 
-TODO
+[SLH-DSA (FIPS 205)](https://csrc.nist.gov/pubs/fips/205/final) is
+a hash-based post-quantum signature scheme based on
+[SPHINCS+](https://sphincs.org/). It has two variants: one using SHA-256 and one using SHAKE.
+
+We replace those with BLAKE3 and call the new scheme **SLH-DSA-B**.
+
+We ran [experimental
+benchmarks](https://github.com/PQC-Suite-B/signatures/blob/b3/slh-dsa/HASHES.md),
+modifying RustCrypto's SLH-DSA with the [reference BLAKE3 Rust
+code](https://crates.io/crates/blake3). Preliminary results show that,
+depending on the platform, SLH-DSA-B can offer the following speed-up:
+
+1. SHAKE is the slowest choice in all benchmarks (4–7× slower) because of its higher per-bit hashing cost.
+2. BLAKE3 and SHA2 are in a similar performance range; the faster one depends on hardware.
+3. Architecture effects dominate: x86 favors BLAKE3 (SIMD parallelism), Apple M3 favors SHA2 (hardware SHA extensions).
+
+We also include test vectors for SLH-DSA-B.
 
 ### Apple M3 Results
 
 #### SLH-DSA-128-S
+
+SLH-DSA `s` variants use smaller, slower parameter sets that trade performance for reduced signature size and stronger security margins. On Apple M3, SHA2 slightly outperforms BLAKE3 in these variants due to the chip's dedicated SHA acceleration, while both are several times faster than SHAKE.
 
 <p float="middle">
     <img src="out/individual/apple_slh_128s_64B_sign.png" width="49%" />
@@ -95,6 +111,8 @@ TODO
 </p>
 
 #### SLH-DSA-128-F
+
+SLH-DSA `f` variants use larger, faster parameter sets optimized for signing and verification speed at the cost of larger signatures. On Apple M3, the same pattern holds: SHA2 remains the fastest, BLAKE3 close behind, and SHAKE significantly slower.
 
 <p float="middle">
     <img src="out/individual/apple_slh_128f_64B_sign.png" width="49%" />
@@ -110,6 +128,8 @@ TODO
 
 #### SLH-DSA-128-S
 
+SLH-DSA `s` variants use smaller, more conservative parameters that prioritize compact signatures over raw speed. On x86_64, BLAKE3 performs best thanks to its SIMD-parallel hash design, while SHA2 trails slightly and SHAKE remains the slowest by a large margin.
+
 <p float="middle">
     <img src="out/individual/cloud_slh_128s_64B_sign.png" width="49%" />
     <img src="out/individual/cloud_slh_128s_64B_verify.png" width="49%" />
@@ -121,6 +141,8 @@ TODO
 </p>
 
 #### SLH-DSA-128-F
+
+SLH-DSA `f` variants use larger parameter sets tuned for faster operation at the cost of bigger signatures. On x86_64, the relative ordering is consistent: BLAKE3 is the fastest, SHA2 close behind, and SHAKE several times slower due to its higher per-bit hashing cost.
 
 <p float="middle">
     <img src="out/individual/cloud_slh_128f_64B_sign.png" width="49%" />
@@ -142,11 +164,6 @@ TODO
 
 We plan to:
 
-- Evaluate SLH-DSA-B, a variant of the hash heavy [SLH-DSA (FIPS 205)](https://csrc.nist.gov/pubs/fips/205/final) where BLAKE3 replaces
-  SHA256 and SHAKE. (Ongoing)
-
 - This fork is temporarily pinned to an earlier [RustCrypto commit](https://github.com/RustCrypto/signatures/commit/f6df3e250c7634bdb72bb2f11e3a4f142be06678). We intend to re-sync with upstream (RustCrypto/signatures) to incorporate the latest ML-DSA changes.
-
-- Create a C version of ML-DSA-B and produce test vectors to ensure consistency across implementations.
 
 - Evaluate BLAKE3's impact on other post-quantum standards and candidates, including KEMs and NIST's [Additional](https://csrc.nist.gov/Projects/pqc-dig-sig/round-2-additional-signatures) signature schemes.
