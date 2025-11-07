@@ -52,12 +52,10 @@ TODO: On AMD and Intel CPUs, the speedups are most pronounced. On Apple ARM
 SoCs, pre-hash remains much faster but the signature and verification
 gains are smaller, as the figures below show:
 
-<p align="center"><img src="out/ml-dsa-b.sign.64b.png" width="40%"><img src="out/ml-dsa-b.verify.64b.png" width="40%"></p>
-
-<p float="left">
-  <img src="out/ml-dsa-b.sign.64b.png" width="100" />
-  <img src="out/ml-dsa-b.sign.64b.png" width="100" />
-  <img src="out/ml-dsa-b.sign.64b.png" width="100" />
+<p float="middle">
+  <img src="out/ml-dsa-b.sign.64b.png" width="30%" />
+  <img src="out/ml-dsa-b.sign.64b.png" width="30%" />
+  <img src="out/ml-dsa-b.sign.64b.png" width="30%" />
 </p>
 
 ![sign](./sign.png)
