@@ -52,17 +52,85 @@ TODO: On AMD and Intel CPUs, the speedups are most pronounced. On Apple ARM
 SoCs, pre-hash remains much faster but the signature and verification
 gains are smaller, as the figures below show:
 
+### Apple M3 Results
+
 <p float="middle">
-  <img src="out/ml-dsa-b.sign.64b.png" width="30%" />
-  <img src="out/ml-dsa-b.sign.64b.png" width="30%" />
-  <img src="out/ml-dsa-b.sign.64b.png" width="30%" />
+    <img src="out/individual/apple_ml_dsa_64B_sign.png" width="49%" />
+    <img src="out/individual/apple_ml_dsa_64B_verify.png" width="49%" />
 </p>
 
-![sign](./sign.png)
+<p float="middle">
+    <img src="out/individual/apple_ml_dsa_1MiB_sign.png" width="49%" />
+    <img src="out/individual/apple_ml_dsa_100MiB_sign.png" width="49%" />
+</p>
 
-![verif](./verif.png)
+### Cloud VM (x86_64)
 
-![sign1m](./sign1m.png)
+<p float="middle">
+    <img src="out/individual/cloud_ml_dsa_64B_sign.png" width="49%" />
+    <img src="out/individual/cloud_ml_dsa_64B_verify.png" width="49%" />
+</p>
+
+<p float="middle">
+    <img src="out/individual/cloud_ml_dsa_1MiB_sign.png" width="49%" />
+    <img src="out/individual/cloud_ml_dsa_100MiB_sign.png" width="49%" />
+</p>
+
+## Faster SLH-DSA
+
+TODO
+
+### Apple M3 Results
+
+#### SLH-DSA-128-S
+
+<p float="middle">
+    <img src="out/individual/apple_slh_128s_64B_sign.png" width="49%" />
+    <img src="out/individual/apple_slh_128s_64B_verify.png" width="49%" />
+</p>
+
+<p float="middle">
+    <img src="out/individual/apple_slh_128s_1MiB_sign.png" width="49%" />
+    <img src="out/individual/apple_slh_128s_100MiB_sign.png" width="49%" />
+</p>
+
+#### SLH-DSA-128-F
+
+<p float="middle">
+    <img src="out/individual/apple_slh_128f_64B_sign.png" width="49%" />
+    <img src="out/individual/apple_slh_128f_64B_verify.png" width="49%" />
+</p>
+
+<p float="middle">
+    <img src="out/individual/apple_slh_128f_1MiB_sign.png" width="49%" />
+    <img src="out/individual/apple_slh_128f_100MiB_sign.png" width="49%" />
+</p>
+
+### Cloud VM (x86_64)
+
+#### SLH-DSA-128-S
+
+<p float="middle">
+    <img src="out/individual/cloud_slh_128s_64B_sign.png" width="49%" />
+    <img src="out/individual/cloud_slh_128s_64B_verify.png" width="49%" />
+</p>
+
+<p float="middle">
+    <img src="out/individual/cloud_slh_128s_1MiB_sign.png" width="49%" />
+    <img src="out/individual/cloud_slh_128s_100MiB_sign.png" width="49%" />
+</p>
+
+#### SLH-DSA-128-F
+
+<p float="middle">
+    <img src="out/individual/cloud_slh_128f_64B_sign.png" width="49%" />
+    <img src="out/individual/cloud_slh_128f_64B_verify.png" width="49%" />
+</p>
+
+<p float="middle">
+    <img src="out/individual/cloud_slh_128f_1MiB_sign.png" width="49%" />
+    <img src="out/individual/cloud_slh_128f_100MiB_sign.png" width="49%" />
+</p>
 
 ## Independent results
 
