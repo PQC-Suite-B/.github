@@ -8,8 +8,8 @@ widely deployed cryptographic hash.
 Authors:
 
 - JP Aumasson / [@veorq](https://x.com/veorq), [Taurus](https://taurushq.com)
-- Alex Pruden / [@apruden08](https://x.com/apruden08), [Project 11](https://www.projecteleven.com/)
 - Conor Deegan / [@conor-deegan](https://x.com/ConorDeegan4), [Project 11](https://www.projecteleven.com/)
+- Alex Pruden / [@apruden08](https://x.com/apruden08), [Project 11](https://www.projecteleven.com/)
 - Zooko Wilcox-O'Hearn / [@zooko](https://x.com/zooko), [Zcash](https://z.cash/)
 
 ## Why BLAKE3?
