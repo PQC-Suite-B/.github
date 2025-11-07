@@ -48,9 +48,17 @@ depending on the platform, ML-DSA-B can offer the following speed-up:
 2. Signature: up to 20% faster.
 3. Verification: up to 30% faster.
 
-On AMD and Intel CPUs, the speedups are most pronounced. On Apple ARM
+TODO: On AMD and Intel CPUs, the speedups are most pronounced. On Apple ARM
 SoCs, pre-hash remains much faster but the signature and verification
 gains are smaller, as the figures below show:
+
+<p align="center"><img src="out/ml-dsa-b.sign.64b.png" width="40%"><img src="out/ml-dsa-b.verify.64b.png" width="40%"></p>
+
+<p float="left">
+  <img src="out/ml-dsa-b.sign.64b.png" width="100" />
+  <img src="out/ml-dsa-b.sign.64b.png" width="100" />
+  <img src="out/ml-dsa-b.sign.64b.png" width="100" />
+</p>
 
 ![sign](./sign.png)
 
@@ -60,16 +68,15 @@ gains are smaller, as the figures below show:
 
 ## Independent results
 
-* By @itzmeanjan: 
-    - ML-DSA-B [C++ version](https://github.com/itzmeanjan/ml-dsa/tree/ml-dsa-b)
-    - [Announcement](https://x.com/meanjanroy/status/1980955869178413544): "Keygen is 20% faster. Signing is 76% faster. Verify is 18% faster."
-
+- By @itzmeanjan:
+  - ML-DSA-B [C++ version](https://github.com/itzmeanjan/ml-dsa/tree/ml-dsa-b)
+  - [Announcement](https://x.com/meanjanroy/status/1980955869178413544): "Keygen is 20% faster. Signing is 76% faster. Verify is 18% faster."
 
 ## Upcoming work
 
 We plan to:
 
-- Evaluate SLH-DSA-B, a variant of the hash heavy [SLH-DSA (FIPS 205)](https://csrc.nist.gov/pubs/fips/205/final) where BLAKE3 replaces 
+- Evaluate SLH-DSA-B, a variant of the hash heavy [SLH-DSA (FIPS 205)](https://csrc.nist.gov/pubs/fips/205/final) where BLAKE3 replaces
   SHA256 and SHAKE. (Ongoing)
 
 - This fork is temporarily pinned to an earlier [RustCrypto commit](https://github.com/RustCrypto/signatures/commit/f6df3e250c7634bdb72bb2f11e3a4f142be06678). We intend to re-sync with upstream (RustCrypto/signatures) to incorporate the latest ML-DSA changes.
