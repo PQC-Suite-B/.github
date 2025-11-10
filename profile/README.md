@@ -48,7 +48,8 @@ depending on the platform, ML-DSA-B can offer the following speed-up:
 2. Signature: up to 20% faster.
 3. Verification: up to 30% faster.
 
-We also include test vectors for ML-DSA-B.
+We also include test vectors for ML-DSA-B, generated using domain-separated hash.
+The two keyed BLAKE3 hashers were derived from strings: "ML-DSA-B-H" and "ML-DSA-B-G".
 
 ### Apple M3 Results
 
@@ -159,6 +160,7 @@ SLH-DSA `f` variants use larger parameter sets tuned for faster operation at the
 - By @itzmeanjan:
   - ML-DSA-B [C++ version](https://github.com/itzmeanjan/ml-dsa/tree/ml-dsa-b)
   - [Announcement](https://x.com/meanjanroy/status/1980955869178413544): "Keygen is 20% faster. Signing is 76% faster. Verify is 18% faster."
+  - Ran our test vectors successfully
 
 ## Upcoming work
 
